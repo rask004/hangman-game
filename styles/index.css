@@ -1,0 +1,23 @@
+body {
+    background-color: #111111;
+    font: 32px/16px "Roboto", Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10% 5% 5% 5%;
+    padding: 1em;
+}
+
+.letter-box {
+    margin-right: 0.1em;
+    padding: 0.25em 0.1em 0 0.1em;
+    background-color: #222222;
+    border-bottom: 1px solid darkslategrey;
+    color: white;
+    width: 0.9em;
+    height: 0.9em;
+    text-align: center;
+    vertical-align: baseline;
+}
