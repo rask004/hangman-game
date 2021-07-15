@@ -65,7 +65,9 @@ https://jsbeginners.com/javascript-hangman-app-project/
 
 
 
-#### Iterations (Delete this section upon final release)
+#### Suggested Iterations
+
+Stages in *italics* are optional challenges
 
 1. Fetching a phrase from internet, print in body
 2. show stylised phrase in layout
@@ -73,3 +75,5 @@ https://jsbeginners.com/javascript-hangman-app-project/
 4. hide phrase and keyboard events
 5. add guess count
 6. add win / loss states
+7. *Change guesses to not count down when correct letter guessed*
+8. *Change guesses to not count down when a previously guessed letter is pressed*
