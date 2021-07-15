@@ -1,4 +1,4 @@
-const render = function (phrase) {
+const renderPuzzle = function (phrase) {
   const container = document.querySelector('.container')
   container.innerHTML = ''
   for (const letter of phrase) {
@@ -7,4 +7,9 @@ const render = function (phrase) {
     element.innerHTML = letter
     container.append(element)
   }
+}
+
+const renderGuesses = function(guessCount) {
+  const guessesContainer = document.querySelector('#guess-count')
+  guessesContainer.innerHTML = guessCount
 }

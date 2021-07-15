@@ -1,12 +1,14 @@
 let puzzle
 let lettersGuessed = []
+let guesses = 5
 
-const renderInitialPuzzle = async function () {
+const resetPuzzle = async function () {
   const wordCount = Math.ceil(1 + Math.random() * 4)
   puzzle = await getPuzzle(wordCount)
   puzzle = puzzle.toLowerCase()
   const puzzleHidden = generateHiddenPuzzle()
-  render(puzzleHidden)
+  renderPuzzle(puzzleHidden)
+  renderGuesses(guesses)
 }
 
 const generateHiddenPuzzle = function () {
@@ -24,20 +26,30 @@ const generateHiddenPuzzle = function () {
 }
 
 const keyPress = function (e) {
-  const key = e.key
-  if (!lettersGuessed.includes(key) && puzzle.includes(key)) {
-    lettersGuessed.push(key)
+  if (guesses > 0) {
+    const key = e.key.toLowerCase()
+    // we shouldn't subtract guesses for non-letter symbols
+    if (key.match(/^[a-z]+$/)) {
+      if (!lettersGuessed.includes(key)) {
+        lettersGuessed.push(key)
+        if (!puzzle.includes(key)) {
+          guesses--
+        }
+      }
+    }
+    const puzzleHidden = generateHiddenPuzzle()
+    renderPuzzle(puzzleHidden)
+    renderGuesses(guesses)
   }
-  const puzzleHidden = generateHiddenPuzzle()
-  render(puzzleHidden)
 }
 
-const clickReset = async function () {
-  renderInitialPuzzle()
+const clickReset = function () {
   lettersGuessed = []
+  guesses = 5
+  resetPuzzle()
 }
 
-window.onload = async function () {
+window.onload = function () {
   document.querySelector('#reset').addEventListener('click', clickReset)
   document.addEventListener('keydown', keyPress)
   clickReset()

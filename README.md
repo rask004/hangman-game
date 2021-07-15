@@ -19,7 +19,7 @@ This is a coding practice application, *intended for Code Clubs*.
 	- App will update the phrase appearance by revealing letters, as they are correctly guessed
 	- App will ignore non letter keys, and ignore case
 	- App will show the number of guesses left
-	- App will decrement (count down) the number of guesses each time a letter is guessed
+	- App will decrement (count down) the number of guesses each time an incorrect letter is guessed
 	- When the phrase is revealed the app will stop accepting guesses
 	- When the remaining guesses reaches 0 the app will stop accepting guesses
 	- If the phrase is fully revealed, the App will indicate the User has won
@@ -75,5 +75,3 @@ Stages in *italics* are optional challenges
 4. hide phrase and keyboard events
 5. add guess count
 6. add win / loss states
-7. *Change guesses to not count down when correct letter guessed*
-8. *Change guesses to not count down when a previously guessed letter is pressed*

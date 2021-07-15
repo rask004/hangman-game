@@ -44,3 +44,8 @@ body {
     margin-left: 1px;
     box-shadow: 1px 1px rgb(73, 3, 73);
 }
+
+.guesses {
+    font: 16px/8px "Roboto", Helvetica, sans-serif;
+    margin-bottom: 2em;
+}
