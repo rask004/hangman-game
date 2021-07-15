@@ -9,7 +9,13 @@ const renderPuzzle = function (phrase) {
   }
 }
 
-const renderGuesses = function(guessCount) {
+const renderGuesses = function (guessCount) {
   const guessesContainer = document.querySelector('#guess-count')
   guessesContainer.innerHTML = guessCount
+}
+
+const renderGameMessage = function (message, colorCode) {
+  const messageContainer = document.querySelector('#message-container')
+  messageContainer.innerHTML = message
+  messageContainer.style.color = colorCode
 }

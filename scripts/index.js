@@ -1,6 +1,7 @@
 let puzzle
 let lettersGuessed = []
 let guesses = 5
+let playGame = true
 
 const resetPuzzle = async function () {
   const wordCount = Math.ceil(1 + Math.random() * 4)
@@ -9,6 +10,8 @@ const resetPuzzle = async function () {
   const puzzleHidden = generateHiddenPuzzle()
   renderPuzzle(puzzleHidden)
   renderGuesses(guesses)
+  renderGameMessage('', '#000000')
+  playGame = true
 }
 
 const generateHiddenPuzzle = function () {
@@ -26,7 +29,7 @@ const generateHiddenPuzzle = function () {
 }
 
 const keyPress = function (e) {
-  if (guesses > 0) {
+  if (playGame) {
     const key = e.key.toLowerCase()
     // we shouldn't subtract guesses for non-letter symbols
     if (key.match(/^[a-z]+$/)) {
@@ -40,6 +43,13 @@ const keyPress = function (e) {
     const puzzleHidden = generateHiddenPuzzle()
     renderPuzzle(puzzleHidden)
     renderGuesses(guesses)
+    if (!puzzleHidden.includes('*')) {
+      renderGameMessage('YOU WIN!', '#22FF22')
+      playGame = false
+    } else if (guesses === 0) {
+      renderGameMessage('Sorry, you lost.', '#FF2222')
+      playGame = false
+    }
   }
 }
 

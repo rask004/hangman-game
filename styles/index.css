@@ -49,3 +49,7 @@ body {
     font: 16px/8px "Roboto", Helvetica, sans-serif;
     margin-bottom: 2em;
 }
+
+.message {
+    float: right;
+}
